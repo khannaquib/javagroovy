@@ -12,7 +12,7 @@ pipeline {
         stage('List Remote Files') {
             steps {
                 sshagent(['docker-server']) {
-                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.232.181.188 "ls -la ~/"'
+                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.232.181.188 "ls -la /home"'
                      }
                 }
         }         
