@@ -6,6 +6,7 @@ pipeline {
             steps {
                 // Fetch the repository using SSH credentials
                 git branch: 'main', url: 'https://github.com/khannaquib/finalproject.git'
+                sh "ls"
             }
        
         }
