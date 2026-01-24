@@ -29,10 +29,12 @@ pipeline {
         }
 
         stage('Docker Hub Login') {
+            steps{
             withCredentials([string(credentialsId: 'aquibkhan456', variable: 'dockerpass')]) {
-        sh 'docker login -u aquibkhan456 -p ${docker}'
+        sh 'docker login -u aquibkhan456 -p ${dockerpass}'
         sh 'docker image push aquibkhan456/${IMAGE_NAME}:v1.$BUILD_ID'
         sh 'docker image push aquibkhan456/${IMAGE_NAME}:latest'
+            }
         }
         
         }
