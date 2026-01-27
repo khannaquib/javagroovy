@@ -28,7 +28,7 @@ pipeline {
                 sshagent(['docker-server']) {
 
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.154.113.239 "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:$BUILD_ID"'
-
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.154.113.239 "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:latest"'
                     withCredentials([
                         string(credentialsId: 'aquibkhan456', variable: 'dockerpass')
                     ]) {
